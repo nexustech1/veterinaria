@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class cadastro2Controller extends Controller
 {
     public function home(){
-        
+        return view('home');
     }
 }

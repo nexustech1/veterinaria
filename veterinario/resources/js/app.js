@@ -1,3 +1,4 @@
+// pra acessar a segunda aba usar /teste na url
 function verificarSeguranca(senha) {
     let maiscula = /[A-Z]/;
     let numero = /[0-9]/;
@@ -46,5 +47,12 @@ function validarSenha() {
         document.getElementById("senha").value = "";
     } else {
         alert(resultadoSenha !== "Conta criada" ? resultadoSenha : resultadoEmail);
+    }
+
+    function verificarERedirecionar() {
+        if (validarEmail() && validarSenha()) {
+            // Redireciona para rota Laravel após a validação já feita
+            window.location.href = "127.0.0.1:8000/teste";
+        }
     }
 }

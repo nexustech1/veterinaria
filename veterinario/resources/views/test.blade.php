@@ -25,11 +25,8 @@
             <h2 class="texto2">Senha</h2> 
             <input type="password" class="senha" id="senha" placeholder="Digite sua senha">
             <br><br>
-            <button class="botao" onclick="validarEmail(); validarSenha();">Entrar</button>
-
         </div>
         </div>
     </div>
-    
 </body>
 </html>
