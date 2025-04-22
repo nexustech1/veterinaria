@@ -18,7 +18,7 @@
       <button class="novo-btn">Novo Paciente</button>
 
       <div class="calendario">
-        <div><strong>D  S  T  Q  Q  S  S</strong></div>
+        <div class="dias"><strong>D  |  S  |  T  |  Q  |  Q  |  S  |  S</strong></div>
         <table>
           <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
           <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
@@ -33,7 +33,7 @@
         <p><strong>9h: Loki</strong><br> - Retorno de consulta</p>
         <p><strong>11h: Zulu</strong><br> - Vacinação</p>
         <p><strong>13h: Loro</strong><br> - Consulta</p>
-        <p><strong>14h: Nino</strong><br> - Exames</p>
+        <p><strong>14h: Zoio</strong><br> - Exames</p>
       </div>
 
       <button class="lembrete-btn">+ Lembrete</button>
