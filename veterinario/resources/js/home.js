@@ -123,14 +123,28 @@
       });
     });
 
-    document.querySelector(".novo-btn").addEventListener("click", () => {
-      alert("Função 'Novo Paciente' em construção 🛠️");
-    });
+    document.querySelector(".edit-btn").addEventListener("click", () => {
+      const nome = prompt("Digite o nome do paciente que deseja editar:").trim().toLowerCase();
+      const paciente = pacientes[nome];
 
-    document.querySelector(".lembrete-btn").addEventListener("click", () => {
-      alert("Você clicou em '+ Lembrete'. Essa função será adicionada em breve.");
-    });
+      if (paciente) {
+        const novosSintomas = prompt("Digite os novos sintomas separados por vírgula:", paciente.sintomas.join(", "));
+        const novaDescricao = prompt("Digite a nova descrição separada por ponto-e-vírgula:", paciente.descricao.join("; "));
 
+        if (novosSintomas) {
+          paciente.sintomas = novosSintomas.split(",").map(s => s.trim());
+        }
+
+        if (novaDescricao) {
+          paciente.descricao = novaDescricao.split(";").map(d => d.trim());
+        }
+
+        alert(`As informações de ${paciente.nome} foram atualizadas com sucesso!`);
+      } else {
+        alert("Paciente não encontrado.");
+      }
+    });
+    
     document.querySelectorAll("header nav a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();

@@ -12,10 +12,10 @@
       <a href="#">Contato</a>
     </nav>
   </header>
-
   <div class="main-container">
     <aside class="sidebar">
       <button class="novo-btn">Novo Paciente</button>
+      <button class="edit-btn">Editar Paciente</button>
 
       <div class="calendario">
         <div class="dias"><strong>D  |  S  |  T  |  Q  |  Q  |  S  |  S</strong></div>
