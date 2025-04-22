@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Paciente</title>
+    @vite(['resources/css/registro.css', 'resources/js/registro.js'])
+
+</head>
+<body>
+    <div class="container">
+        <div class="paciente-detalhes">
+            </div>
+    </div>
+</body>
+</html>
+<!-- Botão para clonar e editar informações -->
+<div style="position: fixed; bottom: 20px; right: 20px;">
+    <button id="clonarComandaBtn" style="padding: 10px 20px; font-size: 16px;">
+        Novo Registro
+    </button>
+</div>
+<style>
+    body {
+    font-family: sans-serif;
+    background-color: #f0f8f0; /* Um verde bem claro de fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #aed581; /* Tom de verde mais presente na imagem */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    width: 450px; /* Ajuste a largura conforme necessário */
+}
+
+.paciente-detalhes {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.paciente-detalhes img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paciente-detalhes h3 {
+    color: #388e3c; /* Verde mais escuro para o nome e dados */
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.paciente-detalhes hr {
+    border: 1px solid #c8e6c9; /* Um verde bem claro para a linha */
+    margin: 15px 0;
+}
+
+.paciente-detalhes h4 {
+    color: #388e3c;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.paciente-detalhes ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.paciente-detalhes li {
+    line-height: 1.6;
+}
+</style>
+<script>
+function salvarClone(clone) {
+    // Remove o botão antes de salvar para não enviar o botão junto
+    const btn = clone.querySelector('.salvar-clone-btn');
+    if (btn) btn.remove();
+
+    fetch('/salvar-clone', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({
+            conteudo: clone.innerHTML
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Alterações salvas com sucesso!');
+    })
+    .catch(error => {
+        alert('Erro ao salvar alterações.');
+    });
+}
+
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('salvar-clone-btn')) {
+        const clone = e.target.closest('.paciente-detalhes');
+        if (clone) {
+            salvarClone(clone);
+        }
+    }
+});
+
+let currentClone = null;
+
+document.getElementById('clonarComandaBtn').addEventListener('click', function() {
+    const detalhes = document.querySelector('.paciente-detalhes');
+    if (detalhes) {
+        const clone = detalhes.cloneNode(true);
+        clone.contentEditable = true;
+        clone.style.border = "2px dashed #007bff";
+        clone.style.marginTop = "20px";
+        clone.classList.add('clone-editando');
+        detalhes.parentNode.appendChild(clone);
+        clone.focus();
+        currentClone = clone;
+
+        // Exibe o botão de salvar fixo
+        let btn = document.getElementById('salvarCloneBtnFixo');
+        if (!btn) {
+            btn = document.createElement('button');
+            btn.id = 'salvarCloneBtnFixo';
+            btn.textContent = 'Salvar Alterações';
+            btn.className = 'salvar-clone-btn';
+            btn.style.position = 'fixed';
+            btn.style.bottom = '70px';
+            btn.style.right = '20px';
+            btn.style.padding = '10px 20px';
+            btn.style.fontSize = '16px';
+            document.body.appendChild(btn);
+        }
+        btn.style.display = 'block';
+    }
+});
+
+// Evento para salvar quando clicar no botão fixo
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'salvarCloneBtnFixo') {
+        if (currentClone) {
+            salvarClone(currentClone);
+            // Opcional: esconder o botão após salvar
+            e.target.style.display = 'none';
+            currentClone = null;
+        }
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const paciente = JSON.parse(localStorage.getItem("pacienteSelecionado"));
+
+    if (paciente) {
+        const detalhesHtml = `
+            <img src="${paciente.imagem}" alt="${paciente.nome}">
+            <h3>Nome: ${paciente.nome}<br>
+                Raça: ${paciente.raca}<br>
+                Idade: ${paciente.idade}
+            </h3>
+            <ul>
+                ${paciente.descricao.map(linha => `<li>${linha}</li>`).join('')}
+            </ul>
+            <hr>
+            <h4>Sintomas</h4>
+            <ul>
+                ${paciente.sintomas.map(s => `<li>${s}</li>`).join('')}
+            </ul>
+        `;
+        const detalhesEl = document.querySelector(".paciente-detalhes");
+        if (detalhesEl) {
+            detalhesEl.innerHTML = detalhesHtml;
+        }
+    } else {
+        const detalhesEl = document.querySelector(".paciente-detalhes");
+        if (detalhesEl) {
+            detalhesEl.innerHTML = "<p>Nenhum paciente selecionado.</p>";
+        }
+    }
+});
+</script>

@@ -1,0 +1,180 @@
+.header {
+    background-color: #b3d8b3;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+  }
+
+  header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 600px;
+   
+  }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    background-color: #ffffff; /* Um azul/verde bem claro */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 90px;
+    gap: 20px;
+    text-align: center;
+}
+
+.cadastro-container, .prescricao-container {
+    background-color: #9ac298;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    width: 670px; /* Ajuste conforme necessário */
+    display: flex;
+    flex-direction: column;
+    color : white,
+}
+
+.cadastro-container .header, .prescricao-container .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.cadastro-container .header h2, .prescricao-container .header h2 {
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+
+.cadastro-container .header button, .prescricao-container .header button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.pet-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pet-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9em;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"] {
+    padding: 8px;
+    border: 1px solid #cfd8dc;
+    border-radius: 4px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.tutor-info {
+    background-color: #f9fbe7; /* Um amarelo bem claro */
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.tutor-info h3 {
+    margin-top: 0;
+    color: black;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.sintomas h3 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.sintomas textarea, .prescricao-area textarea {
+    border: 1px solid #cfd8dc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    min-height: 100px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.actions button {
+    background-color: #9ac298;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.actions button:hover {
+    background-color: #9ac298;
+}
+
+.pagination {
+    text-align: right;
+    color: #78909c;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
