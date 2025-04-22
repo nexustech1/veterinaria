@@ -33,7 +33,7 @@
         <p><strong>9h: Loki</strong><br> - Retorno de consulta</p>
         <p><strong>11h: Zulu</strong><br> - Vacinação</p>
         <p><strong>13h: Loro</strong><br> - Consulta</p>
-        <p><strong>14h: Zoio</strong><br> - Exames</p>
+        <p><strong>14h: Nino</strong><br> - Exames</p>
       </div>
 
       <button class="lembrete-btn">+ Lembrete</button>
@@ -43,11 +43,11 @@
       <div class="pacientes-container">
         <h2>Pacientes</h2>
         <div class="paciente-lista">
-          <div class="paciente-item"><img src="https://i.imgur.com/1P4Avpp.png" alt="Garfield"><span>Garfield</span></div>
-          <div class="paciente-item"><img src="https://i.imgur.com/nH2tZxH.png" alt="Loki"><span>Loki</span></div>
-          <div class="paciente-item"><img src="https://i.imgur.com/gQj0LqV.png" alt="Zulu"><span>Zulu</span></div>
-          <div class="paciente-item"><img src="https://i.imgur.com/VV2aJ1u.png" alt="Loro"><span>Loro</span></div>
-          <div class="paciente-item"><img src="https://i.imgur.com/kN6LkFh.png" alt="Nino"><span>Nino</span></div>
+          <div class="paciente-item"><img src="{{ asset('triste-retrato-de-um-gato-gordo-e-laranja-muito-156466527.webp') }}" alt="Garfield"><span>Garfield</span></div>
+          <div class="paciente-item"><img src="{{ asset('yorkshire-terrier-1024x683.jpg') }}" alt="Loki"><span>Loki</span></div>
+          <div class="paciente-item"><img src="{{ asset('lulu-da-pomerania-caracteristicas-guia-racas.webp') }}" alt="Zulu"><span>Zulu</span></div>
+          <div class="paciente-item"><img src="{{ asset('122761_f41b46dfaa37205e41c1a190ceb2ebf8.jpg') }}" alt="Loro"><span>Loro</span></div>
+          <div class="paciente-item"><img src="{{ asset('Oryctolagus_cuniculus_Tasmania_2.jpg') }}" alt="Nino"><span>Nino</span></div>
         </div>
       </div>
 
