@@ -70,6 +70,7 @@
       adicionarEventoPaciente(item, paciente);
     });
 
+
     // Seleciona o botão "Novo Paciente" pela classe
     const novoPacienteBtn = document.querySelector('.novo-btn');
 
