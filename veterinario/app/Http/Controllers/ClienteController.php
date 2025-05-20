@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -23,7 +24,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('novopaciente');
     }
 
     /**
@@ -31,7 +32,8 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new cliente();
+        $cliente->name = $request->name; 
     }
 
     /**
