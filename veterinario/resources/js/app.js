@@ -56,3 +56,8 @@ function validarSenha() {
         }
     }
 }
+
+function mostrarPaciente(nome) {
+    alert(`Você clicou no paciente: ${nome}`);
+    
+  }
